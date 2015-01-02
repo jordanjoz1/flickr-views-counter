@@ -26,10 +26,10 @@ def main(userId, fname=None):
 	# get list of photos
     photo_pages = []
     for page in range(1,pages + 1):
-        photo_pages.append(flickr.photos.search(user_id=userId, per_page='500', page=page))
+        photo_pages.append(flickr.photos.search(user_id=userId, per_page=str(MAX_PHOTOS_PER_PAGE), page=page))
 	
 	# get view count for each photo
-	data = []
+    data = []
     for photo_page in photo_pages:
         for photo in photo_page[0]:
             data.append(get_photo_data(photo.get('id')))
