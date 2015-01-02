@@ -3,7 +3,7 @@ import csv
 import sys
 import datetime
 
-# FILL THESE VALUES IN
+# FILL IN THESE VALUES, AND DON'T CHANGE ANYTHING ELSE
 api_key = u'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 api_secret = u'YYYYYYYYYYYYYYYYYYYYYYY'
 
@@ -13,25 +13,36 @@ columns = ['Title', 'Upload date', 'photo_id', 'url', 'Description', 'View count
 # setup flickr api
 flickr = flickrapi.FlickrAPI(api_key, api_secret)
 
+MAX_PHOTOS_PER_PAGE = 500
+
 def main(userId, fname=None):
-	
+
+    # get number of photos for the user
+    userInfo = flickr.people.getInfo(user_id=userId)
+    count = int(userInfo[0].find('photos').find('count').text)
+    pages = count / MAX_PHOTOS_PER_PAGE + 1
+    print 'Counting views for %d photos...' % (count)
+    
 	# get list of photos
-	photos = flickr.photos.search(user_id=userId, per_page='1000')
+    photo_pages = []
+    for page in range(1,pages + 1):
+        photo_pages.append(flickr.photos.search(user_id=userId, per_page='500', page=page))
 	
 	# get view count for each photo
 	data = []
-	for photo in photos[0]:
-		data.append(get_photo_data(photo.get('id')))
+    for photo_page in photo_pages:
+        for photo in photo_page[0]:
+            data.append(get_photo_data(photo.get('id')))
 		
 	# write counts to output
 	if (fname is not None):
 		rows = create_rows_from_data(data)
 		write_to_csv(fname, columns, rows)
-		print 'Photo data successfully written to %s' % (fname)
+		print 'Photo data successfully written to %s (this could take hours if you have hundreds of photos)' % (fname)
 	
 	# display view count for photos
 	print 'Total photo views: %d' % (calc_total_views_from_data(data))
-
+    
 def calc_total_views_from_data(data):
     total = 0
     for photo in data:
