@@ -7,7 +7,7 @@ Python script to count the total number of views across all of a user's photos. 
 1. Make sure that your computer has [Python installed](https://www.python.org/downloads/)
 2. Install the [Python Flickr API kit](http://stuvel.eu/flickrapi) using pip
 
-  ```python
+  ```bash
   pip install flickrapi
   ```
 3. Get a [**Non-commercial** Flickr API key](https://www.flickr.com/services/apps/create/noncommercial/?).
@@ -22,12 +22,12 @@ Python script to count the total number of views across all of a user's photos. 
 Run the script with your **user id**.  For example, my user id is `26119226@N04`, which is the last part of the url for my photostream [https://www.flickr.com/photos/26119226@N04/](https://www.flickr.com/photos/26119226@N04/). 
 
 So, I would run:
-```python
+```bash
 ./count-views.py 26119226@N04
 ```
 
 If you want to save the data for your photos in csv format, then add an output file name. For example:
-```python
+```bash
 ./count-views.py 26119226@N04 --output photo-views.csv
 ```
 ###Get daily stats
