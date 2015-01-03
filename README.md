@@ -23,12 +23,18 @@ Run the script with your **user id**.  For example, my user id is `26119226@N04`
 
 So, I would run:
 ```python
-./count-view.py 26119226@N04
+./count-views.py 26119226@N04
 ```
 
 If you want to save the data for your photos in csv format, then add an output file name. For example:
 ```python
-./count-view.py 26119226@N04 --output photo-views.csv
+./count-views.py 26119226@N04 --output photo-views.csv
+```
+###Get daily stats
+If you're familiar with crontab, you can set the script up to save your daily photo statistics.  Here is an example that would run at noon every day, write the csv output to a folder with the date stamp, and log the total counts.  The actual implementation would vary slightly based on your paths, and, of course, your user id.
+
+```bash
+00 12 * * * python count-views.py 26119226@N04 --output ./flickr-counts/count-views-$(date +%F).csv >> flickr-counts-log.txt
 ```
 
 ### Options
@@ -39,3 +45,6 @@ Prints help message.
 #### --output
 Name of the output csv file to save photo data. Like, `photo-views.csv`
 
+## FAQ
+**Q:  why isn't there a website to do this for me?**
+*A: The FlickrApi is [rate limited](https://developer.yahoo.com/forum/YQL/What-is-the-maximum-flickr-API/1361494903655-6a1e3a51-cd41-411e-86a9-dc2dee898ab5/) to 3600 queries per house, so a single API key wouldn't be able to handle requests for a large number of users*
