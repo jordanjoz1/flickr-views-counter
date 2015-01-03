@@ -23,12 +23,12 @@ Run the script with your **user id**.  For example, my user id is `26119226@N04`
 
 So, I would run:
 ```bash
-./count-views.py 26119226@N04
+python count-views.py 26119226@N04
 ```
 
 If you want to save the data for your photos in csv format, then add an output file name. For example:
 ```bash
-./count-views.py 26119226@N04 --output photo-views.csv
+python count-views.py 26119226@N04 --output photo-views.csv
 ```
 ###Get daily stats
 If you're familiar with crontab, you can set the script up to save your daily photo statistics.  Here is an example that would run at noon every day, write the csv output to a folder with the date stamp, and log the total counts.  The actual implementation would vary slightly based on your paths, and, of course, your user id.
