@@ -28,5 +28,14 @@ So, I would run:
 
 If you want to save the data for your photos in csv format, then add an output file name. For example:
 ```python
-./count-view.py 26119226@N04 photo-views.csv
+./count-view.py 26119226@N04 --output photo-views.csv
 ```
+
+### Options
+
+#### -h, --help
+Prints help message.
+
+#### --output
+Name of the output csv file to save photo data. Like, `photo-views.csv`
+
