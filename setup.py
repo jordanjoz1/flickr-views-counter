@@ -22,11 +22,11 @@ setup(name='flickr-views-counter',
       author_email='support@jozapps.com',
       url='https://github.com/jordanjoz1/flickr-views-counter',
       license='MIT',
-      py_modules=['count-views'],
+      py_modules=['count_views'],
       namespace_packages=[],
       install_requires = ['flickrapi'],
       entry_points={
           'console_scripts': [
-              'flickr-views-counter = count-views:main']
+              'flickr-views-counter = count_views:main']
       },
       include_package_data = False)
