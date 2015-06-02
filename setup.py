@@ -24,7 +24,7 @@ setup(name='flickr-views-counter',
       license='MIT',
       py_modules=['count-views'],
       namespace_packages=[],
-      install_requires = [],
+      install_requires = ['flickrapi'],
       entry_points={
           'console_scripts': [
               'flickr-views-counter = count-views:main']
