@@ -1,3 +1,13 @@
+[pypi-url]: https://badge.fury.io/py/flickr-views-counter
+[pypi-image]: https://badge.fury.io/py/flickr-views-counter.svg
+
+[downloads-url]: https://pypi.python.org/pypi/flickr-views-counter/
+[downloads-image]: https://img.shields.io/pypi/dm/flickr-views-counter.svg
+
+[![PyPi version][pypi-image]][pypi-url]
+[![PyPi download count image][downloads-image]][downloads-url]
+
+
 flickr-views-counter
 ====================
 
