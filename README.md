@@ -64,4 +64,4 @@ Your [Flickr API](https://www.flickr.com/services/apps/create/noncommercial/?) s
 
 ## FAQ
 **Q:  why isn't there a website to do this for me?**
-*A: The FlickrApi is [rate limited](https://developer.yahoo.com/forum/YQL/What-is-the-maximum-flickr-API/1361494903655-6a1e3a51-cd41-411e-86a9-dc2dee898ab5/) to 3600 queries per house, so a single API key wouldn't be able to handle requests for a large number of users*
+*A: The FlickrApi is [rate limited](https://developer.yahoo.com/forum/YQL/What-is-the-maximum-flickr-API/1361494903655-6a1e3a51-cd41-411e-86a9-dc2dee898ab5/) to 3600 queries per hour, so a single API key wouldn't be able to handle requests for a large number of users*
